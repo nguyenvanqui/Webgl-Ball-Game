@@ -4,16 +4,43 @@
 	<meta charset="utf-8">
   <title>Nguyễn Văn Quí - 15520696 &mdash; Nguyễn Trọng Nhân - 15520570</title>
   <style>
-    #score {
-        font-size:200%;
-        position: absolute;
-        right: 630px;
-        top: 45px;
-        padding: 4px;
-        color: #00008b;   
-        font-weight: bold;
-        text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
-            }
+  div.container {
+    width: 100%;
+    height: 100%
+    margin: 0;
+    }
+  * {
+    margin: 0px;
+    padding: 0px;
+    }
+  header {
+    padding: 0;
+    color: #EEEEEE;   
+    font-weight: bold;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+    clear: left;
+    text-align: center;
+    }
+  footer {
+    padding: 0;
+    color: #EEEEEE;   
+    clear: left;
+    text-align: center;
+    }
+  article {
+    max-width: 100%;
+    max-height:100%;
+    text-align: center;
+    padding: 0;
+    overflow: hidden;
+  }
+  #score {
+    font-size:150%;
+    position: center;
+    color: #EEEEEE;   
+    font-weight: bold;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+ }
   </style>
 <script type="text/javascript">
 	// glMatrix v0.9.5
@@ -1118,9 +1145,9 @@ window.requestAnimFrame = (function() {
         gl.uniform3fv(shaderProgram.lightingDirectionUniform, adjustedLD);
         gl.uniform3f(
         shaderProgram.directionalColorUniform,
-        parseFloat(0.8),
-        parseFloat(0.8),
-        parseFloat(0.8)
+        parseFloat(0.9),
+        parseFloat(0.9),
+        parseFloat(0.9)
       );        
 
 
@@ -1179,7 +1206,7 @@ window.requestAnimFrame = (function() {
         if (count != 8)
           document.getElementById("score").innerHTML = "Score: "+count;
         else 
-          document.getElementById("score").innerHTML = "You win!!!";
+          document.getElementById("score").innerHTML="You win! Let's press F5 to start game again!";
     }
 
 
@@ -1230,11 +1257,23 @@ window.requestAnimFrame = (function() {
 </script>
 
 </head>
-<body onload="webGLStart();">
+
+<body onload="webGLStart()">
+
+<div class="container hidden" id="play" style="background: url(http://wallpapercave.com/wp/gqI4JaF.jpg) no-repeat center center; background-size: cover; height: calc(100hv);">
+<header>
+  <h1>Ball Game</h1>
+</header>
+
+<article>
 <div id='score'></div>
-<div style="text-align: center;">
-  <canvas id="canvas" style="border: ridge ; background-color: white;" width="800" height="600"></canvas>
+<canvas class="hidden" id="canvas" style="border: ridge ; background-color: white; text-align: center;" width="800" height="600"></canvas>
+</article>
+
+<footer>Copyright &copy; <a href="https://github.com/nguyenvanqui/Webgl-Ball-Game" style="color: #EEEEEE">Nguyễn Văn Quí - Nguyễn Trọng Nhân</a></footer>
+
 </div>
+
 </body>
 
 </html>
