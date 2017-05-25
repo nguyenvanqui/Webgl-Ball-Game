@@ -955,11 +955,7 @@ window.requestAnimFrame = (function() {
         mat4.perspective(45, gl.viewportWidth / gl.viewportHeight, 0.1, 100.0, pMatrix);
   
         mat4.identity(mvMatrix);
-        mat4.rotate(mvMatrix, degToRad(-45), [1, 0, 0]);  // xoay scene để quan sát như demo
-        mat4.translate(mvMatrix, [-xSpeed/1.2,-ySpeed/1.2,0]);  // camera quan sát quả cầu
-
-        
-        mat4.translate(mvMatrix, [0.0, 20.0, -20.0]);
+        mat4.lookAt([0+xSpeed,-15+ySpeed,15],[xSpeed,ySpeed,0],[0,1,0],mvMatrix); // Camera quan sát quả cầu
 
         
         gl.bindBuffer(gl.ARRAY_BUFFER, squareVertexPositionBuffer);
